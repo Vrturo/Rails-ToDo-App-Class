@@ -1,0 +1,4 @@
+<h1>todos</h1>
+  <%= form_for @task, :url => {:action => "create"} do |f|%>
+  <%= f.text_field :description, :placeholder => "What needs to be done?" %>
+<% end %>
