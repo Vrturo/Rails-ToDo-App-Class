@@ -1,2 +1,4 @@
-<h1>Tasks#new</h1>
-<p>Find me in app/views/tasks/new.html.erb</p>
+<h1>todos</h1>
+  <%= form_for @task, :url => {:action => "create"} do |f|%>
+  <%= f.text_field :description, :placeholder => "What needs to be done?" %>
+<% end %>

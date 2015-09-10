@@ -1,2 +1,13 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+<h1>todos</h1>
+  <%= form_for @task do |f|%>
+  <%= f.text_field :description, :placeholder => "What needs to be done?" %>
+<% end %>
+
+
+<% @tasks.each do |task|%>
+  <div style="display: flex">
+    <%= button_to "Complete", task_url(task), :method => :post%>
+    <h3 style="margin-left: 3%;margin-right: 10% "><%= task.description %></h3>
+    <%= button_to "delete", task_url(task), :method => :delete%>
+  </div>
+<% end %>

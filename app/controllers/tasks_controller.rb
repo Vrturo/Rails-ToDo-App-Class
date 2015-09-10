@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   def index
+    @task = Task.new
     @tasks = Task.all
     #render form
   end
@@ -8,13 +9,23 @@ class TasksController < ApplicationController
 
   end
 
+  def update
+
+  end
+
   def create
-    @task = Task.create(task_params)
+    @task = Task.new(task_params)
+      if @task.save
+        redirect_to root_path
+      else
+        "no"
+      end
   end
 
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
+    redirect_to root_path
   end
 
   private
